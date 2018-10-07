@@ -1,0 +1,29 @@
+---
+prelude: |
+  require './array'
+  require 'narray'
+  require 'numo/narray'
+  require 'cumo/narray'
+  require 'pycall/import'
+  using UsuiHon
+  include PyCall::Import
+  pyimport 'numpy', as: :np
+  INIT = 3
+  N = 1000
+  ruby = Array.new(N, Array.new(N, INIT))
+  nary = NArray.int(N, N).fill(INIT)
+  numo = Numo::Int32.new(N, N).fill(INIT)
+  cumo = Cumo::Int32.new(N, N).fill(INIT)
+  pycall = np.array(Array.new(N, Array.new(N, INIT)))
+
+benchmark:
+  - name: Array#+
+    script: ruby + 3
+  - name: NArray#+
+    script: nary / 3
+  - name: Numo::NArray#+
+    script: numo + 3
+  - name: Cumo::NArray#+
+    script: cumo + 3
+  - name: NumPy from PyCall#+
+    script: pycall + 3

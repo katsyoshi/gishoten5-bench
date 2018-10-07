@@ -1,0 +1,24 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    benchmark_driver (0.14.11)
+    cumo (0.1.0)
+      numo-narray (>= 0.9.1.1)
+    narray (0.6.1.2)
+    numo-gnuplot (0.2.4)
+    numo-narray (0.9.1.3)
+    pycall (1.0.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  benchmark_driver
+  cumo
+  narray
+  numo-gnuplot
+  numo-narray
+  pycall
+
+BUNDLED WITH
+   1.16.4
